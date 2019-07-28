@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="en">
+	<meta charset="utf-8">
+	<title>Diabetes prediction application</title>
+
+	<head>
+		<!-- bootstrap -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- angular -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.js" integrity="sha256-jSoVBO61m37PQcQB9y2Lx2K9YYBGz9Bnq0UQ3t95ywI=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.js" integrity="sha256-iofWJlv1W6H0NFMcXvnwN1VgvJejFa8tqqyS1LKLozM=" crossorigin="anonymous"></script>
+
+		<!-- local -->
+		<script src="js/app.js" type="text/javascript" ></script>
+		<script src="js/srv.js" type="text/javascript" ></script>
+	</head>
+
+<body ng-app="bdadaysPMTester" ng-controller="AppCtrl" >
+	<div class="container">
+
+		<h1 class="text-center">Diabetes prediction application  <small>By Anant Mahajan</small></h1><br>
+		<form name='scoreForm' novalidate>
+			<div class="section">
+
+				<div class="form-group">
+					<label for="Pregnancies">Pregnancies</label>
+					<input type="text" class="form-control" name="Pregnancies" id="Pregnancies"
+							required
+							ng-model="p.Pregnancies">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Pregnancies is required
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Glucose">Glucose</label>
+					<input type="text" class="form-control" name="Glucose" id="Glucose"
+							required
+							ng-model="p.Glucose">
+						<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Glucose is required
+					</div>	
+					
+				</div>
+
+				<div class="form-group">
+					<label for="BloodPressure">BloodPressure</label>
+					<input type="text" class="form-control" name="BloodPressure" id="BloodPressure"
+							required
+							ng-model="p.BloodPressure">
+						<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						BloodPressure is required
+					</div>	
+					
+				</div>
+				<div class="form-group">
+					<label for="SkinThickness">SkinThickness</label>
+					<input type="text" class="form-control" name="SkinThickness" id="SkinThickness"
+							required
+							ng-model="p.SkinThickness">
+						<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						SkinThickness is required
+					</div>	
+					
+				</div>
+
+				<div class="form-group">
+					<label for="Insulin">Insulin (minutes per week)</label>
+					<input type="text" class="form-control" name="Insulin" id="Insulin"
+							required
+							ng-model="p.Insulin">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Insulin activity is required
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="BMI">BMI</label>
+					<input type="text" class="form-control" name="BMI" id="BMI"
+							required
+							ng-model="p.BMI">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						BMI level is required
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+					<input type="text" class="form-control" name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction"
+							required
+							ng-model="p.DiabetesPedigreeFunction">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Diabetes Pedigree Function is required
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Age">Age</label>
+					<input type="text" class="form-control" name="Age" id="Age"
+							required
+							ng-model="p.Age">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Age is required
+					</div>
+				</div>
+
+		    </div>
+			<div class="section">
+				<button type="button" ng-disabled="scoreForm.$invalid" class="btn btn-success" ng-click="score()"><i class="glyphicon glyphicon-cloud-upload"></i>&nbsp;Score Now&nbsp;</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>
